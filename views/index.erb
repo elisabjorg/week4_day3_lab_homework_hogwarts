@@ -1,0 +1,8 @@
+<p>All the students</p>
+
+<% @students.each do |student|%>
+<p>name: <%=student.full_name%></p>
+<p>house: <%=student.find_house_name%></p>
+<p>age: <%=student.age%></p>
+<p><a href='/student/'>Students</a></p>
+<%end%>
