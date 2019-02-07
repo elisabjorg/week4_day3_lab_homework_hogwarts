@@ -1,8 +1,9 @@
-<p>All the students</p>
-
+<h1>All the students</h1>
+<hr>
 <% @students.each do |student|%>
 <p>name: <%=student.full_name%></p>
-<p>house: <%=student.find_house_name%></p>
+<p>house: <%=student.find_house_name.name%></p>
 <p>age: <%=student.age%></p>
 <p><a href='/student/'>Students</a></p>
+<hr>
 <%end%>

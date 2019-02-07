@@ -11,7 +11,7 @@ class Student
     @id = options['id'].to_i if options['id']
     @first_name = options['first_name']
     @second_name = options['second_name']
-    @house_id = options['house_id']
+    @house_id = options['house_id'].to_i
     @age = options['age']
   end
 
@@ -25,8 +25,9 @@ class Student
   def find_house_name
     sql = "SELECT name FROM houses WHERE id = $1"
     values = [@house_id]
-    houses = SqlRunner.run(sql, values).first
-    return houses['name']
+    houses = SqlRunner.run(sql, values)
+    result = House.new(houses.first)
+    return result
   end
 
   def full_name()
